@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b9fea95-79e1-436e-8804-e72460480532" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Auth/Usecases/login.usecase.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Usecases/login.usecase.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     <property name="ts.external.directory.path" value="D:\code\node\clean-ts-api\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="npm.clean">
+  <component name="RunManager" selected="npm.test:watch">
     <configuration name="clean" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -136,7 +137,8 @@
       <workItem from="1628997536884" duration="4000" />
       <workItem from="1628997758805" duration="41000" />
       <workItem from="1628997802868" duration="172000" />
-      <workItem from="1629000600261" duration="7948000" />
+      <workItem from="1629000600261" duration="8108000" />
+      <workItem from="1629008809850" duration="222000" />
     </task>
     <task id="LOCAL-00001" summary="Project settings">
       <created>1628997942161</created>
@@ -152,7 +154,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629008493067</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add clean script">
+      <created>1629008616983</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1629008616983</updated>
+    </task>
+    <task id="LOCAL-00004" summary="move linting to pretest">
+      <created>1629008760911</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1629008760911</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +189,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project settings" />
     <MESSAGE value="AuthLogin" />
-    <option name="LAST_COMMIT_MESSAGE" value="AuthLogin" />
+    <MESSAGE value="add clean script" />
+    <MESSAGE value="move linting to pretest" />
+    <option name="LAST_COMMIT_MESSAGE" value="move linting to pretest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="428" y="256" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1628996447153">
@@ -184,26 +202,26 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1629006556613" />
-    <state x="585" y="127" key="CommitChangelistDialog2" timestamp="1629008491024">
+    <state x="585" y="127" key="CommitChangelistDialog2" timestamp="1629008759980">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="585" y="127" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1629008491024" />
-    <state width="1898" height="304" key="GridCell.Tab.0.bottom" timestamp="1629008593772">
+    <state x="585" y="127" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1629008759980" />
+    <state width="1898" height="304" key="GridCell.Tab.0.bottom" timestamp="1629008768624">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1629008593772" />
-    <state width="1898" height="304" key="GridCell.Tab.0.center" timestamp="1629008593771">
+    <state width="1898" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1629008768624" />
+    <state width="1898" height="304" key="GridCell.Tab.0.center" timestamp="1629008768624">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="304" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1629008593771" />
-    <state width="1898" height="304" key="GridCell.Tab.0.left" timestamp="1629008593771">
+    <state width="1898" height="304" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1629008768624" />
+    <state width="1898" height="304" key="GridCell.Tab.0.left" timestamp="1629008768624">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="304" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1629008593771" />
-    <state width="1898" height="304" key="GridCell.Tab.0.right" timestamp="1629008593772">
+    <state width="1898" height="304" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1629008768624" />
+    <state width="1898" height="304" key="GridCell.Tab.0.right" timestamp="1629008768624">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="304" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1629008593772" />
+    <state width="1898" height="304" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1629008768624" />
     <state x="798" y="242" key="RollbackChangesDialog" timestamp="1628997786947">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -216,10 +234,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="689" y="289" width="540" height="524" key="StructurePopup/0.0.1920.1050@0.0.1920.1050" timestamp="1628996614417" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1629008516353">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1629008762703">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1629008516353" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1629008762703" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1629008119969">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
