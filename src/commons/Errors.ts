@@ -2,6 +2,7 @@ export enum ErrorType {
     GENERAL,
     NOTFOUND,
     INVALID_CREDENTIAL,
+    VALIDATION_ERROR,
 }
 
 export class BaseError extends Error {
@@ -32,5 +33,11 @@ export class NotFoundError extends BaseError {
 export class CredentialError extends BaseError {
     constructor(message: string) {
         super(message, ErrorType.INVALID_CREDENTIAL);
+    }
+}
+
+export class ValidationError extends BaseError {
+    constructor(message: string) {
+        super(message, ErrorType.VALIDATION_ERROR);
     }
 }
