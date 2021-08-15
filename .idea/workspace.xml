@@ -23,28 +23,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b9fea95-79e1-436e-8804-e72460480532" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/clean-ts-api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Contracts/login.contract.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Contracts/register.contract.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Entity/AuthSession.entitiy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Entity/RegisterData.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Entity/UserData.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Repositories/auth.repository.contract.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Repositories/auth.repository.dummy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Usecases/login.usecase.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Auth/Usecases/login.usecase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commons/Errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commons/jwt.utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commons/password.utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,7 +75,7 @@
     <property name="ts.external.directory.path" value="D:\code\node\clean-ts-api\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="npm.compile">
+  <component name="RunManager" selected="npm.test:watch">
     <configuration name="compile" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -134,8 +139,17 @@
       <workItem from="1628996270359" duration="1246000" />
       <workItem from="1628997536884" duration="4000" />
       <workItem from="1628997758805" duration="41000" />
-      <workItem from="1628997802868" duration="79000" />
+      <workItem from="1628997802868" duration="172000" />
+      <workItem from="1629000600261" duration="7775000" />
     </task>
+    <task id="LOCAL-00001" summary="Project settings">
+      <created>1628997942161</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628997942161</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,27 +167,39 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project settings" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="428" y="256" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1628996447153">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="428" y="256" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1628996447153" />
-    <state width="1920" height="328" key="GridCell.Tab.0.bottom" timestamp="1628997521656">
+    <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser" timestamp="1629006556613">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1920" height="328" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1628997521656" />
-    <state width="1920" height="328" key="GridCell.Tab.0.center" timestamp="1628997521656">
+    <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1629006556613" />
+    <state x="585" y="127" key="CommitChangelistDialog2" timestamp="1628997940813">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1920" height="328" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1628997521656" />
-    <state width="1920" height="328" key="GridCell.Tab.0.left" timestamp="1628997521656">
+    <state x="585" y="127" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1628997940813" />
+    <state width="1898" height="304" key="GridCell.Tab.0.bottom" timestamp="1629008347274">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1920" height="328" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1628997521656" />
-    <state width="1920" height="328" key="GridCell.Tab.0.right" timestamp="1628997521656">
+    <state width="1898" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1629008347274" />
+    <state width="1898" height="304" key="GridCell.Tab.0.center" timestamp="1629008347274">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1920" height="328" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1628997521656" />
+    <state width="1898" height="304" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1629008347274" />
+    <state width="1898" height="304" key="GridCell.Tab.0.left" timestamp="1629008347274">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1898" height="304" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1629008347274" />
+    <state width="1898" height="304" key="GridCell.Tab.0.right" timestamp="1629008347274">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1898" height="304" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1629008347274" />
     <state x="798" y="242" key="RollbackChangesDialog" timestamp="1628997786947">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -186,9 +212,13 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="689" y="289" width="540" height="524" key="StructurePopup/0.0.1920.1050@0.0.1920.1050" timestamp="1628996614417" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1628997258172">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1628997945795">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1628997258172" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1628997945795" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1629008119969">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1629008119969" />
   </component>
 </project>
