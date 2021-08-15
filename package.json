@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Clean Code using typescript when building api",
   "scripts": {
-    "start": "node dist",
-    "dev": "ts-node-dev --rs --respawn src",
+    "start": "node -r dotenv-safe/config dist",
+    "dev": "ts-node-dev -r dotenv-safe/config --rs --respawn src",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dotenv-safe": "^8.2.0",
     "jsonwebtoken": "^8.5.1"
   }
 }

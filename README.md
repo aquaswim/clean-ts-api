@@ -6,6 +6,7 @@ Clean code using typescript when buidling api
 
 ## How to start
 1. Clone this repo
+1. create the .env (the template is in .env.example)
 1. install dependency
    ```
    npm install

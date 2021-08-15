@@ -2,14 +2,15 @@ import jwt from 'jsonwebtoken';
 import {CredentialError} from './Errors';
 
 const SECRET = process.env.JWT_SECRET || 'verys3cr3t';
-const EXPIRES = '2h';
+const EXPIRY_TOLERANCE = (Number(process.env.EXPIRY_TOLERANCE) || 60) * 5;
+const EXPIRY = (Number(process.env.SESSION_EXPIRY) || 60) * 60000 - EXPIRY_TOLERANCE;
 const ISSUER = process.env.APP_NAME || 'my-api';
 
 export class JwtUtils {
     static signSessionToken<T = object>(userId: string, payloadData: T): Promise<string> {
         const payload = {
             ...payloadData,
-            expiresIn: EXPIRES,
+            exp: Date.now() + EXPIRY,
             iss: ISSUER,
             sub: userId,
         };
