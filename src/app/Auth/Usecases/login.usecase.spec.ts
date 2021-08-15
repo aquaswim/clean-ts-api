@@ -1,6 +1,6 @@
 import LoginUsecase from './login.usecase';
 import {AuthRepositoryDummy} from '../Repositories/auth.repository.dummy';
-import {GeneralError, NotFoundError, ValidationError} from '../../commons/Errors';
+import {GeneralError, NotFoundError, ValidationError} from '../../../commons/Errors';
 
 describe('Login Usecase', () => {
     it('should generate session token when provided with correct login', async () => {

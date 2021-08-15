@@ -1,6 +1,6 @@
 import {IAuthRepositoryContract} from './auth.repository.contract';
 import {UserDataEntity} from '../Entity/UserData.entity';
-import {PasswordUtils} from '../../commons/password.utils';
+import {PasswordUtils} from '../../../commons/password.utils';
 
 export class AuthRepositoryDummy implements IAuthRepositoryContract {
     async getUserByUsername(username: string): Promise<UserDataEntity | null> {

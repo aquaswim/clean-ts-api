@@ -1,9 +1,9 @@
 import {ILoginContract} from '../Contracts/login.contract';
 import {AuthSessionEntitiy} from '../Entity/AuthSession.entitiy';
 import {IAuthRepositoryContract} from '../Repositories/auth.repository.contract';
-import {GeneralError, NotFoundError, ValidationError} from '../../commons/Errors';
-import {PasswordUtils} from '../../commons/password.utils';
-import {JwtUtils} from '../../commons/jwt.utils';
+import {GeneralError, NotFoundError, ValidationError} from '../../../commons/Errors';
+import {PasswordUtils} from '../../../commons/password.utils';
+import {JwtUtils} from '../../../commons/jwt.utils';
 
 const expiry = (Number(process.env.SESSION_EXPIRY) || 60) * 60000;
 
