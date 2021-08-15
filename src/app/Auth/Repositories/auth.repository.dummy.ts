@@ -1,6 +1,7 @@
 import {IAuthRepositoryContract} from './auth.repository.contract';
 import {UserDataEntity} from '../Entity/UserData.entity';
 import {PasswordUtils} from '../../../commons/password.utils';
+import crypto from 'crypto';
 
 export class AuthRepositoryDummy implements IAuthRepositoryContract {
     async getUserByUsername(username: string): Promise<UserDataEntity | null> {
@@ -15,5 +16,13 @@ export class AuthRepositoryDummy implements IAuthRepositoryContract {
             default:
                 return null;
         }
+    }
+
+    private _users: UserDataEntity[] = [];
+    async createUser(userData: UserDataEntity): Promise<UserDataEntity> {
+        // generate id
+        userData.id = crypto.randomUUID();
+        this._users.push(userData);
+        return userData;
     }
 }
