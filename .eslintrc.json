@@ -5,8 +5,8 @@
             "files": [
                 "**/*.spec.ts"
             ],
-            "rules": {
-                "node/no-unpublished-import": 0
+            "env": {
+                "jest": true
             }
         }
     ]

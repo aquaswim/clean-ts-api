@@ -1,7 +1,7 @@
 {
-  "name": "my-awesome-app",
+  "name": "clean-ts-api",
   "version": "0.0.1",
-  "description": "My Awesome app description",
+  "description": "Clean Code using typescript when building api",
   "scripts": {
     "start": "node dist",
     "dev": "ts-node-dev --rs --respawn src",
@@ -15,7 +15,8 @@
     "posttest": "npm run lint"
   },
   "keywords": [
-    "awesome"
+    "clean code",
+    "typescript"
   ],
   "author": "Bayu Setiawan",
   "license": "MIT",
