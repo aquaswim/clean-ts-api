@@ -1,9 +1,13 @@
 export interface IRegisterResult {
     uid: string;
     username: string;
+    extraData: never;
 }
 
 export class RegisterResult implements IRegisterResult {
+    get extraData(): never {
+        return this._extraData;
+    }
     get username(): string {
         return this._username;
     }
@@ -15,8 +19,10 @@ export class RegisterResult implements IRegisterResult {
     constructor(data: IRegisterResult) {
         this._uid = data.uid;
         this._username = data.username;
+        this._extraData = data.extraData;
     }
 
     private readonly _uid: string;
     private readonly _username: string;
+    private readonly _extraData: never;
 }
