@@ -1,0 +1,10 @@
+POST {{baseurl}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "re.ayanami@nerv.jp",
+    "password": "3rdimpact",
+    "name": "Rei Ayanami"
+}
+
+###

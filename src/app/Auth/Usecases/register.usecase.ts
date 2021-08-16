@@ -4,19 +4,21 @@ import {IAuthRepositoryContract} from '../Repositories/auth.repository.contract'
 import {ValidationError} from '../../../commons/Errors';
 import {PasswordUtils} from '../../../commons/password.utils';
 import {UserDataEntity} from '../Entity/UserData.entity';
+import {autoInjectable, inject} from 'tsyringe';
 
+@autoInjectable()
 export default class RegisterUsecase implements IRegisterContract {
-    constructor(private authRepository: IAuthRepositoryContract) {}
+    constructor(@inject('AuthRepository') private authRepository?: IAuthRepositoryContract) {}
     async registerUser(username: string, password: string, extraData: unknown): Promise<RegisterResult> {
         // check username existance
-        if ((await this.authRepository.getUserByUsername(username)) !== null) {
+        if ((await this.authRepository!.getUserByUsername(username)) !== null) {
             throw new ValidationError('Username already exists');
         }
         RegisterUsecase.validateExtraData(extraData);
         // hash password
         const passwordHashed = await PasswordUtils.hash(password);
         // insert to db
-        const userEntity = await this.authRepository.createUser(
+        const userEntity = await this.authRepository!.createUser(
             new UserDataEntity({
                 username,
                 passwordHashed,

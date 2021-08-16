@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import './containers';
 import {ExpressApp} from './api/express-app';
 
 async function main() {
