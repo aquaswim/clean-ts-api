@@ -3,7 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import NotfoundMiddleware from './not-found.middleware';
 import ErrorMiddleware from './error-translator.middleware';
-import infoHandler from './info.handler';
+import routes from './routes';
 
 const PORT = process.env.PORT || '3000';
 
@@ -44,6 +44,6 @@ export class ExpressApp {
     }
 
     private routes() {
-        this.app.all('/', infoHandler);
+        this.app.use(routes);
     }
 }
