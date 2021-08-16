@@ -3,6 +3,7 @@ export enum ErrorType {
     NOTFOUND,
     INVALID_CREDENTIAL,
     VALIDATION_ERROR,
+    DB,
 }
 
 export class BaseError extends Error {
@@ -39,5 +40,11 @@ export class CredentialError extends BaseError {
 export class ValidationError extends BaseError {
     constructor(message: string) {
         super(message, ErrorType.VALIDATION_ERROR);
+    }
+}
+
+export class DBError extends BaseError {
+    constructor(driver: string, message: string) {
+        super(`DB::${driver}::${message}`, ErrorType.DB);
     }
 }
