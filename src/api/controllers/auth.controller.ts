@@ -9,40 +9,32 @@ import {ILoginContract} from '../../app/Auth/Contracts/login.contract';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class AuthController {
     @route('post', '/auth/register')
-    async register(req: e.Request, res: e.Response, next: e.NextFunction) {
+    async register(req: e.Request, res: e.Response) {
         const registerUsecase = container.resolve<IRegisterContract>('RegisterUsecase');
-        try {
-            const response = await registerUsecase.registerUser(
-                req.body.username,
-                req.body.password,
-                omit(req.body, 'username', 'password')
-            );
-            return res.json(
-                ResponseFormat.createResponse({
-                    data: {
-                        uid: response.uid,
-                        username: response.uid,
-                        ...(response.extraData as object),
-                    },
-                })
-            );
-        } catch (e) {
-            next(e);
-        }
+        const response = await registerUsecase.registerUser(
+            req.body.username,
+            req.body.password,
+            omit(req.body, 'username', 'password')
+        );
+        return res.json(
+            ResponseFormat.createResponse({
+                data: {
+                    uid: response.uid,
+                    username: response.uid,
+                    ...(response.extraData as object),
+                },
+            })
+        );
     }
 
     @route('post', '/auth/login')
-    async login(req: e.Request, res: e.Response, next: e.NextFunction) {
+    async login(req: e.Request, res: e.Response) {
         const loginUsecase = container.resolve<ILoginContract>('LoginUsecase');
-        try {
-            const session = await loginUsecase.loginWithUsernameAndPassword(req.body.username, req.body.password);
-            return res.json(
-                ResponseFormat.createResponse({
-                    data: session,
-                })
-            );
-        } catch (e) {
-            next(e);
-        }
+        const session = await loginUsecase.loginWithUsernameAndPassword(req.body.username, req.body.password);
+        return res.json(
+            ResponseFormat.createResponse({
+                data: session,
+            })
+        );
     }
 }

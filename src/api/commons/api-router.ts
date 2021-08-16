@@ -15,10 +15,14 @@ export default apiRoutebuilder.router;
 
 // http method supported by e.Router
 type Method = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head';
+type Handler = (req: e.Request, res: e.Response, next: e.NextFunction) => Promise<void>;
 
 // controllers decoratos
 export function route(method: Method, path: string): MethodDecorator {
     return function (target, propertyKey, descriptor) {
-        apiRoutebuilder.router[method](path, descriptor.value as unknown as e.Application);
+        const handler = descriptor.value as unknown as Handler;
+        apiRoutebuilder.router[method](path, (req, res, next) => {
+            handler(req, res, next).catch(err => next(err));
+        });
     };
 }
