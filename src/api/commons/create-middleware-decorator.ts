@@ -28,7 +28,7 @@ export function createMiddlewareMethodDecorator(middleware: Handler) {
 
 export function createMiddlewareFactoryMethodDecorator(mf: HandlerFactory) {
     return function (...args: unknown[]) {
-        const middleware = mf(args);
+        const middleware = mf(...args);
         return createMiddlewareMethodDecorator(middleware)();
     };
 }
