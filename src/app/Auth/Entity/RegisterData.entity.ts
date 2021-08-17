@@ -1,11 +1,11 @@
 export interface IRegisterResult {
     uid: string;
     username: string;
-    extraData: never;
+    extraData: unknown;
 }
 
 export class RegisterResult implements IRegisterResult {
-    get extraData(): never {
+    get extraData(): unknown {
         return this._extraData;
     }
     get username(): string {
@@ -24,5 +24,5 @@ export class RegisterResult implements IRegisterResult {
 
     private readonly _uid: string;
     private readonly _username: string;
-    private readonly _extraData: never;
+    private readonly _extraData: unknown;
 }
