@@ -1,6 +1,6 @@
 import {ILoginContract} from '../Contracts/login.contract';
 import {AuthSessionEntitiy} from '../Entity/AuthSession.entitiy';
-import {IAuthRepositoryContract} from '../Repositories/auth.repository.contract';
+import {IAuthRepositoryContract} from '../Contracts/auth.repository.contract';
 import {CredentialError, NotFoundError} from '../../../commons/Errors';
 import {PasswordUtils} from '../../../commons/password.utils';
 import {JwtUtils} from '../../../commons/jwt.utils';

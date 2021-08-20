@@ -1,4 +1,4 @@
-import {IAuthRepositoryContract} from './auth.repository.contract';
+import {IAuthRepositoryContract} from '../Contracts/auth.repository.contract';
 import {UserDataEntity} from '../Entity/UserData.entity';
 import {PasswordUtils} from '../../../commons/password.utils';
 import crypto from 'crypto';

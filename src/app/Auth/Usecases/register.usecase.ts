@@ -1,6 +1,6 @@
 import {IRegisterContract} from '../Contracts/register.contract';
 import {RegisterResult} from '../Entity/RegisterData.entity';
-import {IAuthRepositoryContract} from '../Repositories/auth.repository.contract';
+import {IAuthRepositoryContract} from '../Contracts/auth.repository.contract';
 import {ValidationError} from '../../../commons/Errors';
 import {PasswordUtils} from '../../../commons/password.utils';
 import {UserDataEntity} from '../Entity/UserData.entity';
