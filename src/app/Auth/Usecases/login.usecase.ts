@@ -5,6 +5,7 @@ import {CredentialError, NotFoundError} from '../../../commons/Errors';
 import {PasswordUtils} from '../../../commons/password.utils';
 import {JwtUtils} from '../../../commons/jwt.utils';
 import {autoInjectable, inject} from 'tsyringe';
+import {ITokenPayload} from '../Entity/TokenPayload.entity';
 
 const expiry = (Number(process.env.SESSION_EXPIRY) || 60) * 60000;
 
@@ -18,9 +19,14 @@ export default class LoginUsecase implements ILoginContract {
             // user data found
             // compare the password
             if (await PasswordUtils.compare(password!, userData.passwordHashed)) {
+                const payload: ITokenPayload = {
+                    generateDate: Date.now(),
+                    uid: userData.id,
+                    username: userData.username,
+                };
                 return new AuthSessionEntitiy({
                     refreshToken: '',
-                    sessionToken: await JwtUtils.signSessionToken(userData.id, {username: userData.username}),
+                    sessionToken: await JwtUtils.signSessionToken(userData.id, payload),
                     expiredAt: Date.now() + expiry,
                 });
             }
