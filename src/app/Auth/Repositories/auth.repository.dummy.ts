@@ -25,4 +25,18 @@ export class AuthRepositoryDummy implements IAuthRepositoryContract {
         this._users.push(userData);
         return userData;
     }
+
+    async getById(id: string): Promise<UserDataEntity | null> {
+        switch (id) {
+            case 'someofmyid':
+                return new UserDataEntity({
+                    id: 'someofmyid',
+                    username: 'rei_ayanami@example.com',
+                    passwordHashed: await PasswordUtils.hash('password'),
+                    registerDate: new Date(),
+                });
+            default:
+                return null;
+        }
+    }
 }

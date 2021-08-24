@@ -1,6 +1,6 @@
 import {IAuthRepositoryContract} from '../Contracts/auth.repository.contract';
 import {UserDataEntity} from '../Entity/UserData.entity';
-import {mongodbCollection} from '../../../external/mongodb';
+import {mongodbCollection, strToObjectID} from '../../../external/mongodb';
 
 export class AuthRepository implements IAuthRepositoryContract {
     public static COLLECTION_NAME = 'users';
@@ -20,6 +20,21 @@ export class AuthRepository implements IAuthRepositoryContract {
     async getUserByUsername(username: string): Promise<UserDataEntity | null> {
         const collection = await mongodbCollection(AuthRepository.COLLECTION_NAME);
         const userDoc = await collection.findOne({username});
+        if (userDoc) {
+            return new UserDataEntity<unknown>({
+                id: userDoc._id.toString(),
+                username: userDoc.username,
+                passwordHashed: userDoc.passwordHashed,
+                registerDate: userDoc.registerDate,
+                extraData: userDoc.extraData,
+            });
+        }
+        return null;
+    }
+
+    async getById(id: string): Promise<UserDataEntity | null> {
+        const collection = await mongodbCollection(AuthRepository.COLLECTION_NAME);
+        const userDoc = await collection.findOne({_id: strToObjectID(id)});
         if (userDoc) {
             return new UserDataEntity<unknown>({
                 id: userDoc._id.toString(),

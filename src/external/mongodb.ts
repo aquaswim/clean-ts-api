@@ -1,4 +1,4 @@
-import {Db, MongoClient} from 'mongodb';
+import {Db, MongoClient, ObjectId} from 'mongodb';
 import {DBError} from '../commons/Errors';
 
 const MONGOURI = String(process.env.MONGO_URI);
@@ -43,3 +43,5 @@ export async function closeConnection() {
         console.log('DB Closed');
     }
 }
+
+export const strToObjectID = (str: string) => new ObjectId(str);

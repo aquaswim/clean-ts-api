@@ -12,7 +12,7 @@ describe('Test repository with real db', () => {
             console.log('Collection not exists', AuthRepository.COLLECTION_NAME);
         }
     });
-    it('should able to function normally', () => {
+    it('should able to function normally to query by username', () => {
         return expect(
             (async () => {
                 if (!(await repository.getUserByUsername('test-user@example.com'))) {
@@ -28,6 +28,32 @@ describe('Test repository with real db', () => {
                 expect(typeof userData!.id).toBe('string');
                 expect(userData!.passwordHashed).toStrictEqual('test');
                 expect(userData!.username).toStrictEqual('test-user@example.com');
+                expect(userData!.registerDate).toBeInstanceOf(Date);
+                return true;
+            })()
+        ).resolves.toBe(true);
+    });
+    it('should able to function normally to query by id', () => {
+        return expect(
+            (async () => {
+                let id: string | null = null;
+                if (!(await repository.getUserByUsername('test-user2@example.com'))) {
+                    const doc = await repository.createUser(
+                        new UserDataEntity({
+                            username: 'test-user2@example.com',
+                            passwordHashed: 'test',
+                            extraData: {test: true},
+                        })
+                    );
+                    id = doc.id;
+                    console.log(doc);
+                }
+                expect(typeof id).toBe('string');
+                const userData = await repository.getById(id!);
+                console.log(userData, id!);
+                expect(userData).not.toBe(null);
+                expect(userData!.passwordHashed).toStrictEqual('test');
+                expect(userData!.username).toStrictEqual('test-user2@example.com');
                 expect(userData!.registerDate).toBeInstanceOf(Date);
                 return true;
             })()
