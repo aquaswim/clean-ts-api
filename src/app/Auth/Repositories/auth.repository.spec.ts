@@ -46,11 +46,9 @@ describe('Test repository with real db', () => {
                         })
                     );
                     id = doc.id;
-                    console.log(doc);
                 }
                 expect(typeof id).toBe('string');
                 const userData = await repository.getById(id!);
-                console.log(userData, id!);
                 expect(userData).not.toBe(null);
                 expect(userData!.passwordHashed).toStrictEqual('test');
                 expect(userData!.username).toStrictEqual('test-user2@example.com');
