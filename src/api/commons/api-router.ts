@@ -21,8 +21,12 @@ type Handler = (req: e.Request, res: e.Response, next: e.NextFunction) => Promis
 export function route(method: Method, path: string): MethodDecorator {
     return function (target, propertyKey, descriptor) {
         const handler = descriptor.value as unknown as Handler;
-        apiRoutebuilder.router[method](path, (req, res, next) => {
-            handler(req, res, next).catch(err => next(err));
+        apiRoutebuilder.router[method](path, async (req, res, next) => {
+            try {
+                await handler(req, res, next);
+            } catch (err) {
+                next(err);
+            }
         });
     };
 }
