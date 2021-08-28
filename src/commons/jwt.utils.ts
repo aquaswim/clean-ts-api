@@ -9,10 +9,10 @@ const ISSUER = process.env.APP_NAME || 'my-api';
 export class JwtUtils {
     static signSessionToken<T = object>(userId: string, payloadData: T): Promise<string> {
         const payload = {
-            ...payloadData,
             exp: Date.now() + EXPIRY,
             iss: ISSUER,
             sub: userId,
+            ...payloadData,
         };
         return Promise.resolve(
             // this JSON stringify and parse is stupid, but i don't care
