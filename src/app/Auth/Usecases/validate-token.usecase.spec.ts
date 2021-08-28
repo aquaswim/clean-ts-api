@@ -26,6 +26,7 @@ describe('Validate token usecase', () => {
             await validateTokenUseCase.decode(token);
         } catch (err) {
             expect(err).toBeInstanceOf(CredentialError);
+            expect(err.message).toMatch(/invalid/i);
         }
     });
     it('should throw expired token when provided with expired token', async () => {
@@ -42,7 +43,7 @@ describe('Validate token usecase', () => {
             await validateTokenUseCase.decode(token);
         } catch (err) {
             expect(err).toBeInstanceOf(CredentialError);
-            expect(err.message).toMatch(/expired/);
+            expect(err.message).toMatch(/expired/i);
         }
     });
 });

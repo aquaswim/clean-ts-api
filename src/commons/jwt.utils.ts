@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt, {NotBeforeError, TokenExpiredError} from 'jsonwebtoken';
 import {CredentialError} from './Errors';
 
 const SECRET = process.env.JWT_SECRET || 'verys3cr3t';
@@ -33,7 +33,14 @@ export class JwtUtils {
                 },
                 (err, decoded) => {
                     if (err) {
-                        return reject(new CredentialError(err.message));
+                        if (err instanceof TokenExpiredError) {
+                            return reject(new CredentialError('Token Expired'));
+                        } else if (err instanceof NotBeforeError) {
+                            // idk, never use this
+                            return reject(new CredentialError(err.message));
+                        } else {
+                            return reject(new CredentialError('Invalid Token'));
+                        }
                     }
                     return resolve(decoded as T & {sub?: string});
                 }
