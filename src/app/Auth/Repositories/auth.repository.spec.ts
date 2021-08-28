@@ -1,5 +1,5 @@
 import {AuthRepository} from './auth.repository';
-import {mongodbCollection} from '../../../external/mongodb';
+import {closeConnection, mongodbCollection} from '../../../external/mongodb';
 import {UserDataEntity} from '../Entity/UserData.entity';
 
 describe('Test repository with real db', () => {
@@ -12,6 +12,8 @@ describe('Test repository with real db', () => {
             console.log('Collection not exists', AuthRepository.COLLECTION_NAME);
         }
     });
+    // close the connection
+    afterAll(() => closeConnection());
     it('should able to function normally to query by username', () => {
         return expect(
             (async () => {

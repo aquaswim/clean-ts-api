@@ -40,7 +40,6 @@ export async function closeConnection() {
         await _client.close();
         _client = undefined;
         _database = undefined;
-        console.log('DB Closed');
     }
 }
 
