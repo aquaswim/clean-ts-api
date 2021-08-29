@@ -1,6 +1,5 @@
 import {ExpressApp} from '../express-app';
 import request from 'supertest';
-import '../../containers';
 import {container} from 'tsyringe';
 import {IRegisterContract} from '../../app/Auth/Contracts/register.contract';
 import {RegisterResult} from '../../app/Auth/Entity/RegisterData.entity';
