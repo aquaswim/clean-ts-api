@@ -1,4 +1,4 @@
-POST {{baseurl}}/auth/register
+POST {{baseurl}}/v1/auth/register
 Content-Type: application/json
 
 {
