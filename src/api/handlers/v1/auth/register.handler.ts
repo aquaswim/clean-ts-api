@@ -1,11 +1,11 @@
-import CreateHandler from '../../commons/create.handler';
-import bodyValidation from '../../middlewares/body-validation';
+import CreateHandler from '../../../commons/create.handler';
+import bodyValidation from '../../../middlewares/body-validation';
 import Joi from 'joi';
 import {Handler} from 'express';
 import {container} from 'tsyringe';
-import {IRegisterContract} from '../../../app/Auth/Contracts/register.contract';
+import {IRegisterContract} from '../../../../app/Auth/Contracts/register.contract';
 import {omit} from 'lodash';
-import ResponseFormat from '../../commons/response-format';
+import ResponseFormat from '../../../commons/response-format';
 
 const handler: Handler = async (req, res) => {
     const registerUsecase = container.resolve<IRegisterContract>('RegisterUsecase');

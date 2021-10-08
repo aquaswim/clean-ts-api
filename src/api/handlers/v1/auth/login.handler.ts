@@ -1,10 +1,10 @@
-import CreateHandler from '../../commons/create.handler';
-import bodyValidation from '../../middlewares/body-validation';
+import CreateHandler from '../../../commons/create.handler';
+import bodyValidation from '../../../middlewares/body-validation';
 import Joi from 'joi';
 import {Handler} from 'express';
 import {container} from 'tsyringe';
-import {ILoginContract} from '../../../app/Auth/Contracts/login.contract';
-import ResponseFormat from '../../commons/response-format';
+import {ILoginContract} from '../../../../app/Auth/Contracts/login.contract';
+import ResponseFormat from '../../../commons/response-format';
 
 const handler: Handler = async (req, res) => {
     const loginUsecase = container.resolve<ILoginContract>('LoginUsecase');

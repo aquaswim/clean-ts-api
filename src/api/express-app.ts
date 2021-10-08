@@ -40,7 +40,7 @@ export class ExpressApp {
         this.app.use(ErrorMiddleware);
     }
 
-    private registerRoute(routes: e.Router) {
+    registerRoute(routes: e.Router) {
         // init global middleware
         this.globalMiddleware();
         // routes

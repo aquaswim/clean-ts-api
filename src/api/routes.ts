@@ -1,12 +1,10 @@
 import {Router} from 'express';
 import homeHandler from './handlers/home';
-import loginHandler from './handlers/auth/login.handler';
-import registerHandler from './handlers/auth/register.handler';
+import v1Routes from './handlers/v1';
 
 const apiRouter = Router();
 
 apiRouter.get('/', homeHandler);
-apiRouter.post('/auth/login', loginHandler);
-apiRouter.post('/auth/register', registerHandler);
+apiRouter.use('/v1', v1Routes);
 
 export default apiRouter;
