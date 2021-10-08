@@ -1,11 +1,11 @@
-import {ExpressApp} from '../express-app';
+import {ExpressApp} from '../../express-app';
 import request from 'supertest';
 import {container} from 'tsyringe';
-import {IRegisterContract} from '../../app/Auth/Contracts/register.contract';
-import {RegisterResult} from '../../app/Auth/Entity/RegisterData.entity';
-import {CredentialError, ErrorType, NotFoundError} from '../../commons/Errors';
-import {ILoginContract} from '../../app/Auth/Contracts/login.contract';
-import {AuthSessionEntitiy} from '../../app/Auth/Entity/AuthSession.entitiy';
+import {IRegisterContract} from '../../../app/Auth/Contracts/register.contract';
+import {RegisterResult} from '../../../app/Auth/Entity/RegisterData.entity';
+import {CredentialError, ErrorType, NotFoundError} from '../../../commons/Errors';
+import {ILoginContract} from '../../../app/Auth/Contracts/login.contract';
+import {AuthSessionEntitiy} from '../../../app/Auth/Entity/AuthSession.entitiy';
 
 class DummyRegisterUsecase implements IRegisterContract {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,7 +36,7 @@ class DummyLoginUsecase implements ILoginContract {
     }
 }
 
-describe('Test the auth.controller', () => {
+describe('Test the /auth routes', () => {
     let app: ExpressApp;
     beforeAll(async () => {
         app = new ExpressApp();

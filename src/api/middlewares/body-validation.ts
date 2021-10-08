@@ -1,9 +1,8 @@
 import {AnySchema, ValidationError as JoiValidationError} from 'joi';
 import {Handler} from 'express';
 import {ValidationError} from '../../commons/Errors';
-import {createMiddlewareFactoryMethodDecorator} from '../commons/create-middleware-decorator';
 
-const middlewareFactory = (schema: AnySchema): Handler => {
+const validationMiddlewareFactory = (schema: AnySchema): Handler => {
     return (req, res, next) => {
         schema
             .validateAsync(req.body, {
@@ -19,4 +18,4 @@ const middlewareFactory = (schema: AnySchema): Handler => {
     };
 };
 
-export default createMiddlewareFactoryMethodDecorator(middlewareFactory);
+export default validationMiddlewareFactory;
