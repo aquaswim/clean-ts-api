@@ -1,7 +1,7 @@
 import {ExpressApp} from '../express-app';
 import request from 'supertest';
 
-describe('Test the etc.controller', () => {
+describe('Test the etc routes', () => {
     let app: ExpressApp;
     beforeAll(async () => {
         app = new ExpressApp();

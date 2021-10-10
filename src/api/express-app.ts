@@ -2,7 +2,7 @@ import e from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import NotfoundMiddleware from './not-found.middleware';
-import ErrorMiddleware from './error-translator.middleware';
+import ErrorMiddleware from './middlewares/error-translator.middleware';
 import routes from './routes';
 
 const PORT = process.env.PORT || '3000';
@@ -12,14 +12,11 @@ export class ExpressApp {
         return this._app;
     }
     private readonly _app: e.Application;
-    constructor() {
+    constructor(registerRoutes = true) {
         this._app = e();
-        // init global middleware
-        this.globalMiddleware();
-        // routes
-        this.routes();
-        // init terminal middleware
-        this.terminalMiddleware();
+        if (registerRoutes) {
+            this.registerRoute(routes);
+        }
     }
 
     public listen(): Promise<string> {
@@ -43,7 +40,12 @@ export class ExpressApp {
         this.app.use(ErrorMiddleware);
     }
 
-    private routes() {
+    registerRoute(routes: e.Router) {
+        // init global middleware
+        this.globalMiddleware();
+        // routes
         this.app.use(routes);
+        // init terminal middleware
+        this.terminalMiddleware();
     }
 }

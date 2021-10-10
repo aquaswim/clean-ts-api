@@ -1,4 +1,4 @@
-import {BaseError, ErrorType} from '../commons/Errors';
+import {BaseError, ErrorType} from '../../commons/Errors';
 import e from 'express';
 
 /**

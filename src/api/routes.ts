@@ -1,6 +1,10 @@
-import ApiRouter from './commons/api-router';
-// include all the controllers
-import './controllers/etc.controller';
-import './controllers/auth.controller';
+import {Router} from 'express';
+import homeHandler from './handlers/home';
+import v1Routes from './handlers/v1';
 
-export default ApiRouter;
+const apiRouter = Router();
+
+apiRouter.get('/', homeHandler);
+apiRouter.use('/v1', v1Routes);
+
+export default apiRouter;
